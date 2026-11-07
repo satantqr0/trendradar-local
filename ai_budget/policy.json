@@ -1,0 +1,24 @@
+{
+  "version": "2026-11-06.2",
+  "timezone": "Asia/Shanghai",
+  "daily_limit_micro_cny": 200000,
+  "max_requests_per_day": 4,
+  "slots": [
+    "08:00",
+    "12:30",
+    "18:30",
+    "22:00"
+  ],
+  "slot_window_minutes": 60,
+  "max_message_bytes": 16000,
+  "prompt_overhead_token_allowance": 1024,
+  "max_output_tokens": 1800,
+  "peak_input_micro_cny_per_token": 2,
+  "peak_output_micro_cny_per_token": 8,
+  "model": "MiniMax-M3.1-Flash",
+  "api_base": "https://api.minimaxi.com/v1",
+  "max_news": 50,
+  "news_content_bytes": 12500,
+  "reservation_basis": "Conservative local CNY reservation weights; M Plan subscription only.",
+  "provider_plan_source": "https://platform.minimax.cn/subscribe/coding-plan"
+}

@@ -1,0 +1,12 @@
+**
+!Dockerfile
+!custom_layout/
+!custom_layout/**
+!ai_budget/
+!ai_budget/**
+!config/
+!config/**
+!scripts/
+!scripts/bootstrap.py
+!scripts/initialize_budget.py
+**/__pycache__/

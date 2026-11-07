@@ -1,0 +1,8 @@
+[system]
+你为读者整理新闻。仅据给出的标题、来源和日期归纳，不能补造事实；规划、签约、在建、开业必须区分。优先整理用户配置的关注内容，其次关注社会民生、科技和数码。旧报道保留日期，不能当作今天的新进展。仅输出合法 JSON，字段值都是简短中文字符串，不要代码围栏。全篇450字以内，每栏1至2句，信息不足可留空；standalone_summaries必须为空对象。
+[user]
+分析时间：{current_time}（北京时间）
+新闻已去重并限制数量；只分析下列材料：
+{news_content}
+输出 JSON：
+{"core_trends":"重点事件，标注关键日期","sentiment_controversy":"社会民生","signals":"本地建设、招商或交通线索，区分事项阶段","rss_insights":"科技与数码动态","outlook_strategy":"接下来应核验的本地事项","standalone_summaries":{}}

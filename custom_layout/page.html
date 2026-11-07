@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>本地新闻雷达</title><style>@@STYLE@@</style></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#overview" aria-label="新闻雷达首页"><span class="brand-mark">R<span></span></span><span>新闻雷达<small>LOCAL NEWS BRIEF</small></span></a>
+  <div class="nav-caption">你的新闻简报</div><nav id="navigation" aria-label="新闻分类"></nav>
+  <div class="sidebar-bottom"><span class="status-dot"></span>每 30 分钟更新<small>按关注设置浏览</small><span class="powered">POWERED BY TRENDRADAR</span></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><a href="#overview" class="mobile-brand">R / 新闻雷达</a><span class="breadcrumb">本地视野<span>/</span>今日新闻</span><div class="top-actions"><button id="theme" class="icon-button" aria-label="切换深浅色" title="切换深浅色">◐</button><button id="refresh" class="plain-button">刷新</button><details class="tools"><summary>工具 <span>⌄</span></summary><div class="tools-menu"><button id="export">导出 Markdown</button><button id="print">打印 / 保存 PDF</button><button id="original">下载原版 HTML</button></div></details></div></header>
+  <main id="main">
+    <div class="page-heading"><div><p class="eyebrow">YOUR LOCAL NEWS, IN FOCUS</p><h1>本地新闻雷达</h1><p class="intro">身边的变化，与值得关注的新消息。</p></div><div class="updated"><span class="status-dot"></span><span id="updated-time"></span><small>最近生成</small></div></div>
+    <div id="metrics" class="metrics"></div>
+    <div id="alerts" role="status"></div>
+    <div class="reading-toolbar"><label class="search-box"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><input id="search" type="search" placeholder="搜索标题、来源或关键词" aria-label="搜索新闻"><kbd>/</kbd></label><select id="mobile-navigation" aria-label="切换新闻分类"></select><span class="reading-hint">按关注主题整理 · 合并重复报道</span></div>
+    <div id="view" aria-live="polite"></div>
+    <footer>时间均为北京时间 · 报道与采集时间分别标注 · AI 分析供阅读参考，请以新闻原文为准。<span>TrendRadar · 本地简报</span></footer>
+  </main>
+</div>
+<script type="application/json" id="radar-data">@@DATA@@</script>
+<script type="application/octet-stream" id="original-data">@@ORIGINAL@@</script>
+<script>@@SCRIPT@@</script>
+<noscript><p>请启用 JavaScript 以查看分类新闻。</p></noscript>
+</body></html>

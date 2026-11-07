@@ -1,0 +1,32 @@
+services:
+  trendradar:
+    build: .
+    ports:
+      - "${BIND_ADDR:-127.0.0.1}:${PORT:-8080}:8080"
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Shanghai
+      RUN_MODE: cron
+      CRON_SCHEDULE: "*/30 * * * *"
+      IMMEDIATE_RUN: "${IMMEDIATE_RUN:-true}"
+      WEBSERVER_PORT: "8080"
+      AI_ANALYSIS_ENABLED: "${AI_ANALYSIS_ENABLED:-false}"
+    volumes:
+      - reports:/app/output
+      - focus:/app/focus_private
+      - ./secrets:/run/trendradar-secrets:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; assert all(urllib.request.urlopen('http://127.0.0.1:8080'+path, timeout=3).read(1) for path in ('/index.html','/api/focus'))"]
+      interval: 30s
+      timeout: 8s
+      retries: 3
+      start_period: 180s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  reports:
+  focus:

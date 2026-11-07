@@ -1,0 +1,161 @@
+app:
+  timezone: Asia/Shanghai
+  show_version_update: false
+schedule:
+  enabled: false
+  preset: morning_evening
+platforms:
+  enabled: true
+  api_url: ''
+  sources:
+  - id: toutiao
+    name: 今日头条
+    expected_domain: toutiao.com
+  - id: baidu
+    name: 百度热搜
+    expected_domain: baidu.com
+  - id: wallstreetcn-hot
+    name: 华尔街见闻
+    expected_domain: wallstreetcn.com
+  - id: thepaper
+    name: 澎湃新闻
+    expected_domain: thepaper.cn
+  - id: bilibili-hot-search
+    name: bilibili 热搜
+    expected_domain: bilibili.com
+  - id: cls-hot
+    name: 财联社热门
+    expected_domain: cls.cn
+  - id: ifeng
+    name: 凤凰网
+    expected_domain: ifeng.com
+  - id: tieba
+    name: 贴吧
+    expected_domain: baidu.com
+  - id: weibo
+    name: 微博
+    expected_domain: weibo.com
+  - id: douyin
+    name: 抖音
+    expected_domain: douyin.com
+  - id: zhihu
+    name: 知乎
+    expected_domain: zhihu.com
+  - id: ithome
+    name: IT之家资讯
+    expected_domain: ithome.com
+  - id: sspai
+    name: 少数派热门
+    expected_domain: sspai.com
+  - id: solidot
+    name: Solidot科技
+    expected_domain: solidot.org
+  - id: coolapk
+    name: 酷安数码热门
+    expected_domain: coolapk.com
+rss:
+  enabled: true
+  freshness_filter:
+    enabled: true
+    max_age_days: 3
+  feeds:
+  - id: cns-society
+    name: 中新网·社会民生
+    url: https://www.chinanews.com.cn/rss/society.xml
+    max_items: 60
+    max_age_days: 3
+  - id: cns-news
+    name: 中新网·即时新闻
+    url: https://www.chinanews.com.cn/rss/scroll-news.xml
+    max_items: 60
+    max_age_days: 3
+  - id: ithome
+    name: IT之家·科技数码
+    url: https://www.ithome.com/rss/
+    max_items: 80
+    max_age_days: 3
+  - id: sspai
+    name: 少数派·数码与效率
+    url: https://sspai.com/feed
+    max_items: 30
+    max_age_days: 7
+  - id: appinn
+    name: 小众软件·应用工具
+    url: https://www.appinn.com/feed/
+    max_items: 30
+    max_age_days: 7
+  - id: hacker-news
+    name: Hacker News
+    url: https://news.ycombinator.com/rss
+report:
+  mode: current
+  display_mode: keyword
+  sort_by_position_first: true
+  rank_threshold: 5
+  max_news_per_keyword: 0
+filter:
+  method: keyword
+  priority_sort_enabled: true
+display:
+  region_order:
+  - standalone
+  - hotlist
+  - rss
+  - new_items
+  - ai_analysis
+  regions:
+    hotlist: true
+    new_items: false
+    rss: true
+    standalone: true
+    ai_analysis: true
+  standalone:
+    platforms: []
+    rss_feeds:
+    - cns-society
+    - ithome
+    max_items: 15
+notification:
+  enabled: false
+storage:
+  backend: local
+  formats:
+    sqlite: true
+    txt: false
+    html: true
+  local:
+    data_dir: output
+    retention_days: 0
+  remote:
+    retention_days: 0
+    endpoint_url: ''
+    bucket_name: ''
+    access_key_id: ''
+    secret_access_key: ''
+    region: ''
+  pull:
+    enabled: false
+    days: 7
+ai_filter:
+  enabled: false
+ai_translation:
+  enabled: false
+ai:
+  model: MiniMax-M3.1-Flash
+  api_key: ''
+  api_base: https://api.minimaxi.com/v1
+  timeout: 90
+  max_tokens: 1800
+  num_retries: 0
+  fallback_models: []
+ai_analysis:
+  enabled: false
+  language: Chinese
+  prompt_file: custom/ai/news_budget_prompt.txt
+  mode: follow_report
+  max_news_for_analysis: 50
+  include_rss: true
+  include_standalone: false
+  include_rank_timeline: false
+advanced:
+  debug: false
